@@ -25,6 +25,11 @@ function getRandomNumber(min, max) {
 function checkGuess() {
   // Get value from guess input element
   const guess = parseInt(guessInput.value, 10);
+  if ( guess < 1 || guess > 99) {
+    alert("Please enter a number between 1 and 99");
+    return;
+  }
+
   attempts = attempts + 1;
 
   hideAllMessages();
@@ -84,7 +89,7 @@ function setup() {
   guessInput.disabled = false;
 
   hideAllMessages();
-  resetButton.style.display = '';
+  resetButton.style.display = 'none';
 }
 
 submitButton.addEventListener('click', checkGuess);
